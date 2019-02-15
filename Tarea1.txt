@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+
+namespace practica
+{
+    class Fraccion
+    {
+        private int numerador;
+        private int denominador;
+
+        public Fraccion (int numerador, int denominador)
+        {
+            this.numerador = numerador;
+            this.denominador = denominador;
+        }
+
+        public Fraccion()
+        {
+            numerador = 1;
+            denominador = 1;
+        }
+
+        public static Fraccion operator +(Fraccion x, Fraccion y)
+        {
+     
+           Fraccion suma = new Fraccion(x.numerador * y.denominador + x.denominador * y.numerador, 
+                                   x.denominador * y.denominador);
+            return suma;
+        }
+
+        public static Fraccion operator -(Fraccion x, Fraccion y)
+        {
+
+            Fraccion resta = new Fraccion(x.numerador * y.denominador - x.denominador * y.numerador,
+                                    x.denominador * y.denominador);
+            return resta;
+        }
+
+        public static Fraccion operator *(Fraccion x, Fraccion y)
+        {
+
+            Fraccion multi = new Fraccion(x.numerador * y.numerador, x.denominador * y.denominador);
+            return multi;
+        }
+
+        public static Fraccion operator /(Fraccion x, Fraccion y)
+        {
+
+            Fraccion div = new Fraccion(x.numerador * y.denominador, x.denominador * y.numerador);
+            return div;
+        }
+
+
+        public void imprimir()
+        {
+            Console.WriteLine("{0}/{1}", numerador, denominador);
+           
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+       
+        Fraccion a = new Fraccion(1, 2);
+        Fraccion b = new Fraccion(1,3);
+            Fraccion c = a + b;
+            Fraccion d = a - b;
+            Fraccion e = a * b;
+            Fraccion f = a / b;
+            a.imprimir();
+            b.imprimir();
+            c.imprimir();
+            d.imprimir();
+            e.imprimir();
+            f.imprimir();
+
+
+            Console.ReadKey();
+        }
+    }
+}
